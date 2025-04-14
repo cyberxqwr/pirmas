@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import ProductList from './ProductList';
 import Cart from './Cart';
 
-function ShoppingApp() { // Rename to App if using App.js
-    const [products] = useState([ // Usually fetched from an API
+function ShoppingApp() {
+    const [products] = useState([
       { id: 1, name: 'Duona', price: 1.5 },
       { id: 2, name: 'Pienas', price: 0.9 },
       { id: 3, name: 'Sūris', price: 3.0 },
@@ -11,7 +11,7 @@ function ShoppingApp() { // Rename to App if using App.js
     const [cartItems, setCartItems] = useState([]);
   
     const addToCart = (productToAdd) => {
-      // Could add logic here to handle quantity or check if item already exists
+      
       setCartItems([...cartItems, productToAdd]);
     };
   
@@ -19,9 +19,9 @@ function ShoppingApp() { // Rename to App if using App.js
       setCartItems(cartItems.filter((_, index) => index !== indexToRemove));
     };
   
-    // **Props Drilling Example:**
-    // 'addToCart' is passed from ShoppingApp -> ProductList -> ProductItem
-    // 'cartItems' and 'removeFromCart' are passed from ShoppingApp -> Cart
+    // **Props Drilling:**
+    // 'addToCart' ateina per ShoppingApp -> ProductList -> ProductItem
+    // 'cartItems' ir 'removeFromCart' pareina per ShoppingApp -> Cart
   
     return (
       <div>

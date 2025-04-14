@@ -4,10 +4,10 @@ function TaskForm({ addTask }) {
     const [inputValue, setInputValue] = useState('');
   
     const handleSubmit = (e) => {
-      e.preventDefault(); // Prevent page reload
-      if (!inputValue.trim()) return; // Ignore empty input
+      e.preventDefault();
+      if (!inputValue.trim()) return;
       addTask(inputValue);
-      setInputValue(''); // Clear input field
+      setInputValue('');
     };
   
     return (

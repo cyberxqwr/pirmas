@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import TaskForm from './TaskForm';
 import TaskItem from './TaskItem';
 
-function TaskList() { // Rename to App if using App.js directly
+function TaskList() {
     const [tasks, setTasks] = useState([
       { text: 'Išmokti React', isDone: false },
       { text: 'Sukurti užduočių sąrašą', isDone: true },
@@ -11,7 +11,7 @@ function TaskList() { // Rename to App if using App.js directly
   
     const addTask = (text) => {
       const newTask = { text, isDone: false };
-      setTasks([...tasks, newTask]); // Add new task to the end
+      setTasks([...tasks, newTask]);
     };
   
     const deleteTask = (indexToDelete) => {
@@ -33,7 +33,7 @@ function TaskList() { // Rename to App if using App.js directly
         <ul>
           {tasks.map((task, index) => (
             <TaskItem
-              key={index} // Important for list rendering performance
+              key={index}
               task={task}
               index={index}
               deleteTask={deleteTask}

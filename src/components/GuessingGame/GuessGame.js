@@ -2,24 +2,23 @@ import React, { useState, useEffect } from 'react';
 import GuessForm from './GuessForm';
 import Message from './Message';
 
-function GuessGame() { // Rename to App if using App.js
+function GuessGame() {
     const [targetNumber, setTargetNumber] = useState(0);
     const [currentGuess, setCurrentGuess] = useState('');
     const [message, setMessage] = useState('');
     const [attempts, setAttempts] = useState(0);
     const [isGameOver, setIsGameOver] = useState(false);
   
-    // Generate random number only once when the component mounts
     useEffect(() => {
       const newTarget = Math.floor(Math.random() * 100) + 1;
       setTargetNumber(newTarget);
-      console.log(`Skaičius yra: ${newTarget}`); // For testing/cheating ;)
-    }, []); // Empty dependency array means run only on mount
+      console.log(`Skaičius yra: ${newTarget}`);
+    }, []);
   
     const handleGuess = () => {
-      if (isGameOver) return; // Don't allow guesses after game over
+      if (isGameOver) return;
   
-      const guessNum = parseInt(currentGuess, 10); // Convert input string to number
+      const guessNum = parseInt(currentGuess, 10);
       setAttempts(attempts + 1);
   
       if (isNaN(guessNum) || guessNum < 1 || guessNum > 100) {
@@ -29,10 +28,10 @@ function GuessGame() { // Rename to App if using App.js
           setIsGameOver(true);
       } else if (guessNum < targetNumber) {
           setMessage('Bandyk didesnį!');
-      } else { // guessNum > targetNumber
+      } else {
           setMessage('Bandyk mažesnį!');
       }
-      setCurrentGuess(''); // Clear input after guess
+      setCurrentGuess('');
     };
   
     const resetGame = () => {
